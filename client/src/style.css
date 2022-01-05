@@ -1,0 +1,28 @@
+.hello {
+  color: red;
+}
+body {
+  height: 100vh;
+  width: 100%;
+}
+
+.container-fluid {
+	height: 100%;
+	padding-top: 15px;
+	display: flex;
+	flex-direction: column;
+}
+
+#canvas {
+  width: 100%;
+  flex-grow: 1;
+}
+
+#file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
