@@ -70,10 +70,16 @@ var bpmnViewer = (function () {
         layouter: new AutoLayout(),
 
         reloadView: async function (xml) {
-            const result = await this.viewer.importXML(xml);
-            let canvas = this.viewer.get("canvas");
-            canvas.zoom("fit-viewport");
-            canvas.zoom(0.8 * canvas._cachedViewbox.scale);
+            try {
+                const result = await this.viewer.importXML(xml);
+                let canvas = this.viewer.get("canvas");
+                canvas.zoom("fit-viewport");
+                canvas.zoom(0.8 * canvas._cachedViewbox.scale);
+                document.getElementById("errMsg").style.display = "none";
+            }
+            catch (err) {
+                document.getElementById("errMsg").style.display = "inline";
+            }
         },
     };
 })();
